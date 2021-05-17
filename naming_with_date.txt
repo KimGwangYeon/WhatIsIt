@@ -1,0 +1,4 @@
+import datetime
+
+datetime.now()
+df.to_excel('파일이름_'+ datetime.now().strftime('%Y-%m-%d') + ".xlsx", index =False)
