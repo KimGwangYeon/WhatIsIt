@@ -1,0 +1,31 @@
+import math
+
+loc = {1: [0, 0], 2: [0, 1], 3: [0, 2], 4: [1, 0], 5: [1, 1], 6: [1, 2], 7: [2, 0], 8: [2, 1], 9: [2, 2], '*': [3, 0], 0: [3, 1], '#': [3, 2]}
+answer_L = ['*']
+answer_R = ['#']
+ans=[]
+def dis(a, b) :
+    return (abs(loc[a][0] - loc[b][0]) + abs(loc[a][1] - loc[b][1]))
+    
+def solution(numbers, hand):
+    for i in numbers:
+        if i == 1 or i == 4 or i == 7:
+            answer_L.append(i)
+            ans.append('L')
+        elif i == 3 or i == 6 or i == 9:
+            answer_R.append(i)
+            ans.append('R')
+        elif dis(answer_L[-1], i) < dis(answer_R[-1], i):
+            answer_L.append(i)
+            ans.append('L')
+        elif dis(answer_L[-1], i) > dis(answer_R[-1], i):
+            answer_R.append(i)
+            ans.append('R')
+        elif dis(answer_L[-1], i) == dis(answer_R[-1], i):
+            if hand == 'right':
+                answer_R.append(i)
+                ans.append('R')
+            elif hand == 'left':
+                answer_L.append(i)
+                ans.append('L')
+    return ''.join(ans)
