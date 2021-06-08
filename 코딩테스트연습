@@ -1,0 +1,9 @@
+def solution(numbers):
+    answer = []
+    for i, val in enumerate(numbers) : # enumerate를 쓰면 value에 접근하기가 쉬워진다.
+        re_range = numbers[i+1:]
+        
+        for j in re_range :
+            answer.append(val +j)
+
+    return sorted(set(answer))
