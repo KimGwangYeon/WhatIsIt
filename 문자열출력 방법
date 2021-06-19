@@ -1,0 +1,12 @@
+python 프린트 방법 3가지
+# 초창기 파이썬
+print('%s %s' % ('Hello', 'SSafy'))
+print('%i %s' % (2, 'two'))
+
+# pyformat
+print('{} {}'.format('one', 'two'))
+print('{1} {0}'.format('one', 'two'))
+
+# f-string 
+a, b = ('one', 'two')
+print(f'{a} {b}')
