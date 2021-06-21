@@ -1,0 +1,8 @@
+# 폴더 내부의 파일들을 불러오는 코드
+path = "./"
+file_list = os.listdir(path)
+# csv파일들만을 불러와서 리스트에 저장하자.
+file_list_py = [file for file in file_list if file.endswith(".csv")]
+# 여기선 예시로 rename 하기
+for file_name in file_list_strange:
+    os.rename(path + file_name, path + file_name[:10]+'0'+file_name[10:])
