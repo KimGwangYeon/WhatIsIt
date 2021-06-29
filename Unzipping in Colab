@@ -1,0 +1,8 @@
+# zip file 불러와서 풀기
+from google.colab import files
+file_uploaded = files.upload() # zip 파일 업로드하기 
+
+train_dir = 'catanddog.zip' # 변수지정
+
+!unzip catanddog.zip
+!unzip '파일위치'              # 드라이브에 있는 zip풀기
