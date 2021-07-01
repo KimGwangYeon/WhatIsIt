@@ -1,0 +1,19 @@
+# 자연어 공부를 하면서 파일을 열고 닫는 코드를 사용했다
+# 나중에 쓰려고 남긴다
+
+if os.path.isfile('train_docs.json') : # 있으면 ~~
+  with open('train_docs.json') as f :
+    train_docs = json.load(f)
+  with open('test_docs.json') as f :
+    test_docs = json.load(f)
+
+else :   # 없으면   # 일단 가져오면 토큰화 해줘야지
+  train_docs = [(tokenize(row[1]), row[2]) for row in train_data]
+  test_docs = [(tokenize(row[1]), row[2]) for row in test_data]
+
+  with open('train_docs.json', 'w', encoding = 'utf-8') as make_file :
+    json.dump(train_docs, make_file, ensure_ascii=False, indent='\t' ) # dump = 덮어씌운다, utf했으니까 아스키는 false    
+  with open('test_docs.json', 'w', encoding = 'utf-8') as make_file :
+    json.dump(test_docs, make_file, ensure_ascii=False, indent='\t' )
+
+pprint(train_docs[0]) # 예쁘게 뽑아주...? pretty print...?
