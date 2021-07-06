@@ -1,0 +1,11 @@
+# 이미지파일이 모자라서 기존의 데이터로 추가 생성한다
+
+# data augmentation
+trdata = ImageDataGenerator(rescale=1./255,shear_range=0.2,zoom_range=0.2,horizontal_flip=True, validation_split=0.2)
+
+
+traindata = trdata.flow_from_directory(directory="./dogsandcats",   target_size=(224,224), subset='training') 
+# flow_from_directory
+
+valdata = trdata.flow_from_directory(directory="./dogsandcats",   target_size=(224,224),subset="validation" ,)
+
