@@ -1,0 +1,15 @@
+# keras에서 데이터를 사용할 때 지원하는 API 형식에 맞추면 속도가 굉장히 빠르다고 한다
+
+# Docstring of tensorflow.data.Dataset.from_tensor_slices
+
+>>> # Two tensors can be combined into one Dataset object.
+>>> features = tf.constant([[1, 3], [2, 1], [3, 3]]) # ==> 3x2 tensor
+>>> labels = tf.constant(['A', 'B', 'A']) # ==> 3x1 tensor
+>>> dataset = Dataset.from_tensor_slices((features, labels))
+
+>>> # Both the features and the labels tensors can be converted
+>>> # to a Dataset object separately and combined after.
+>>> features_dataset = Dataset.from_tensor_slices(features)
+>>> labels_dataset = Dataset.from_tensor_slices(labels)
+>>> dataset = Dataset.zip((features_dataset, labels_dataset))
+
