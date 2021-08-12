@@ -1,0 +1,17 @@
+import os, sys
+from PIL import Image
+import matplotlib.pyplot as plt
+from glob import glob
+
+bmps = glob('*trace*.bmp')
+
+fig, axes = plt.subplots(3, 3)
+
+for arch in bmps:
+    i = Image.open(arch)
+    iar = np.array(i)
+    for i in range(3):
+        for j in range(3):
+            axes[i, j].plot(iar)
+            plt.subplots_adjust(wspace=0, hspace=0)
+plt.show()
