@@ -1,0 +1,16 @@
+import pyodbc
+import pandas as pd
+import pickle
+# Some other example server values are
+# server = 'localhost\sqlexpress' # for a named instance
+# server = 'myserver,port' # to specify an alternate port
+
+server = 'server_name'
+database = 'database'
+username = 'name'
+password = 'password'
+cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+cursor = cnxn.cursor()
+
+query = "select HADM_ID, FIRST_CAREUNIT, LAST_CAREUNIT from dbo.ICUSTAYS"
+df = pd.read_sql(query, cnxn)
